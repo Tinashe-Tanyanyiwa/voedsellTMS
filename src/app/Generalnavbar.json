@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "link": "/dashboard",
+        "attribute": "Home"
+    },
+    {
+        "id": 2,
+        "link": "/dashboard/scan",
+        "attribute": "Scan"
+    },
+    {
+        "id": 3,
+        "link": "/dashboard/new",
+        "attribute": "Add New"
+    },
+    {
+        "id": 4,
+        "link": "/dashboard/status",
+        "attribute": "Existing"
+    }
+]

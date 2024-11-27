@@ -1,95 +1,60 @@
-import Image from "next/image";
+"use client";
+import React from "react";
+import "./globals.css";
+import CssBaseline from "@mui/material/CssBaseline";
 import styles from "./page.module.css";
+import { ThemeProvider } from "@mui/material/styles";
+import { createTheme } from "@mui/material/styles";
+import "@fontsource/open-sans";
+import Login from "./Login";
+import "@fontsource/poppins";
+import { Typography } from "@mui/material";
 
 export default function Home() {
+  const theme = createTheme({
+    typography: {
+      fontFamily: '"Poppins", "Open Sans", Arial, sans-serif',
+    },
+    components: {
+      MuiGrid: {
+        styleOverrides: {
+          root: {
+            "@media (min-width: 0px)": {
+              width: "100%",
+              marginLeft: "0px",
+            },
+          },
+          item: {
+            "@media (min-width: 0px)": {
+              paddingLeft: "0px",
+            },
+            paddingTop: "0px",
+            "&.css-8sa601-MuiGrid-root": {
+              "@media (min-width: 0px)": {
+                paddingLeft: "0px !important",
+              },
+            },
+            "&.css-1x8z8d6-MuiGrid-root > &": {
+              "@media (min-width: 0px)": {
+                paddingLeft: "0px !important",
+              },
+            },
+            ".css-aq8pb7-MuiSvgIcon-root": {
+              fontSize: "16px !important",
+            },
+          },
+        },
+      },
+    },
+  });
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
+    <div>
+      <div className={styles.center} style={{ width: "100%" }}>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <Login></Login>
+        </ThemeProvider>
       </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+    </div>
   );
 }
